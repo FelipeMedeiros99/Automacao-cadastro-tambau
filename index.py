@@ -32,6 +32,5 @@ while True:
         nascimentos.append('')
 
     if botoes == 'Ok':
-        
        janela_confirmacao(dados, nomes, cpfs, cpf_invalido, nascimentos, cep, contato)
        

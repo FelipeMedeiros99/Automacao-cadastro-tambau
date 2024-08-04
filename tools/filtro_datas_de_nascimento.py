@@ -2,7 +2,8 @@ from re import compile, findall
 from datetime import date
 
 def filtro_datas_de_nascimento(txt):
-    padrao = compile(r'(\d{2}).?(\d{2}).?(\d{4}|\d{2})')
+    regex_nascimento = r'(0[0-9]|[12][0-9]|3[01]).?(0[0-9]|1[0-2]).?(\d{4}|\d{2})'
+    padrao = compile(regex_nascimento)
     nascimentos = findall(padrao, txt)
     nascimentos_ajustados = []
 
