@@ -1,5 +1,5 @@
 from PySimpleGUI import Popup
-from tools.filtra_numeros import filtra_numeros
+from tools.filtros.filtra_numeros import filtra_numeros
 from pycep import PyCep
 
 def preencher_endereco(janela, dados):

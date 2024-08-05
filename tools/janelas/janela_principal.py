@@ -1,12 +1,13 @@
-from tools.filtro_nomes import filtro_nomes
-from tools.correcao_de_dados import modelo_cpf, modelo_de_contato
+from tools.filtros.filtro_nomes import filtro_nomes
+from tools.correcao_dados.correcao_de_dados import modelo_cpf
+from tools.correcao_dados.correcao_contato import correcao_contato
 from tools.preencher_endereco import preencher_endereco
-from tools.janela_confirmacao import janela_confirmacao
-from tools.filtro_datas_de_nascimento import filtro_datas_de_nascimento
+from tools.janelas.janela_confirmacao import janela_confirmacao
+from tools.filtros.filtro_datas_de_nascimento import filtro_datas_de_nascimento
+from tools.validacoes.valida_endereco_esta_preenchido import valida_endereco_esta_preenchido
 from layout_telas.menu_principal_layout import menu_principal_layout
 
-
-from PySimpleGUI import WINDOW_CLOSED, Window
+from PySimpleGUI import WINDOW_CLOSED, Window, Popup
 
 def janela_principal():
 
@@ -21,7 +22,7 @@ def janela_principal():
         nascimentos = filtro_datas_de_nascimento(dados['dados'])
         cpfs, cpf_invalido = modelo_cpf(dados['dados'])
         nomes = filtro_nomes(dados)
-        contato = modelo_de_contato(dados['contato'])
+        contato = correcao_contato(dados['contato'])
 
         if botoes == WINDOW_CLOSED or botoes == 'Cancelar':
             break
@@ -29,9 +30,17 @@ def janela_principal():
         if botoes == 'Buscar':
             cep = preencher_endereco(menu_principal, dados)
             
-        # deixando a lista de nascimento proporcional
         while len(nascimentos) < len(cpfs):
             nascimentos.append('')
 
         if botoes == 'Ok':
-            janela_confirmacao(dados, nomes, cpfs, cpf_invalido, nascimentos, cep, contato)
+            if len(cpf_invalido) > 0:
+                texto = f"CPF(s) invalido(s): \ 
+                \n\n{str(cpf_invalido).replace("[", "").replace("]", '').replace(", ", '\n')}"
+                Popup(texto)
+        
+            elif not valida_endereco_esta_preenchido(dados, cep):
+                Popup('endereço inválido, verifique')
+
+            else:
+                janela_confirmacao(dados, nomes, cpfs, cpf_invalido, nascimentos, cep, contato)

@@ -18,5 +18,4 @@ def menu_confirmacao_layout(nomes, cpfs, nascimentos, cpf_invalido):
 
       return layout
     except IndexError:
-      texto = str([f' {cpf}' for cpf in cpf_invalido]).replace('[', '').replace(']', '').replace("'", "")
-      sg.Popup(f'CPF(s) incorreto(s): {texto}, verifique!')
+      pass

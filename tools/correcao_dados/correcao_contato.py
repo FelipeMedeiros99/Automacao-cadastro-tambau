@@ -1,4 +1,4 @@
-def modelo_de_contato(numero):
+def correcao_contato(numero):
     try:
         contato = [num for num in numero if num.isnumeric()]
 
