@@ -1,8 +1,7 @@
 import PySimpleGUI as sg
 
 def menu_confirmacao_layout(nomes, cpfs, nascimentos, cpf_invalido):
-    print(cpf_invalido)
-    print(cpfs, nomes, nascimentos)
+    
     try:
       # abrir janela com todos os dados organizados
       layout = [

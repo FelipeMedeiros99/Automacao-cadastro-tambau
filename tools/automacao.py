@@ -14,20 +14,6 @@ def abrir_programa():
     sleep(1)
 
 
-def localizar_janela():
-    while True:
-        try:
-            imagem = locateCenterOnScreen('tools/imagens/reserva.PNG')
-            if imagem: 
-                break
-
-        except:
-            continue
-
-    # while not locateCenterOnScreen('reserva.PNG'):
-    #     pass
-
-
 def abrir_reservas(nova=False):
     import pyautogui as ag
     from time import sleep

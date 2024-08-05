@@ -14,8 +14,7 @@ def preencher_endereco(janela, dados):
         cep = endereco['cep']
 
     except Exception as erro:
-        print(erro)
         Popup('cep inválido')
 
     finally:
-        return cep
+        return cep.replace("-", '')

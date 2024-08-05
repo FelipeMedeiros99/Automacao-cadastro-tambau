@@ -1,4 +1,4 @@
-#!C:\Users\Caroline\Documents\Felipe\python\Automacao-cadastro-tambau\env\Scripts\python.exe
+#!C:\Users\USER\Documents\1FELIPE\programaçao\python\Automacao-cadastro-tambau\env\Scripts\python.exe
 # -*- coding: utf-8 -*-
 
 from pycep import PyCep
