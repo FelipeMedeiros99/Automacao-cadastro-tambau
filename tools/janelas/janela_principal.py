@@ -25,6 +25,7 @@ def janela_principal():
         contato = correcao_contato(dados['contato'])
 
         if botoes == WINDOW_CLOSED or botoes == 'Cancelar':
+            menu_principal.close()
             break
 
         if botoes == 'Buscar':
@@ -35,8 +36,7 @@ def janela_principal():
 
         if botoes == 'Ok':
             if len(cpf_invalido) > 0:
-                texto = f"CPF(s) invalido(s): \ 
-                \n\n{str(cpf_invalido).replace("[", "").replace("]", '').replace(", ", '\n')}"
+                texto = f"CPF(s) invalido(s): \n\n{str(cpf_invalido).replace("[", "").replace("]", '').replace(", ", '\n')}"
                 Popup(texto)
         
             elif not valida_endereco_esta_preenchido(dados, cep):

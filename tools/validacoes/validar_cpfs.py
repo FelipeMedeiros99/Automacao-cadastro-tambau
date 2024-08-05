@@ -23,7 +23,6 @@ def validar_cpfs(txt):
     # trabalhando os cpfs
     for cpf in cpfs:
         cpf = ''.join(list(filter(lambda x: x.isnumeric(), cpf)))
-        print(cpf)
         cpf_valido = checar(cpf)
         if cpf_valido:
             cpfs_corretos.append(cpf)

@@ -74,7 +74,7 @@ def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, te
     # telefone
     copy(telefone)
     press('backspace')
-    (telefone)
+    write(telefone)
     sleep(0.2)
     press('tab')
     sleep(0.2)
@@ -82,7 +82,7 @@ def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, te
     sleep(0.2)
 
     press('backspace')
-    (telefone)
+    write(telefone)
     sleep(0.2)
     press('tab')
     sleep(0.2)
