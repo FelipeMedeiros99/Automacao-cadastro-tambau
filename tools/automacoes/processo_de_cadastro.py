@@ -2,6 +2,7 @@ from tools.automacoes.localizar_janela_cadastro import localizar_janela_cadastro
 from tools.automacoes.fechar_janela import fechar_janela
 from tools.automacoes.cadastrar_hospede import cadastrar_hospede
 from tools.automacoes.editar_hospede import editar_hospede
+
 from PySimpleGUI import Popup
 
 def processo_de_cadastro(janela_confirmacao, nomes, cpfs, nascimentos, cep, dados, contato):
