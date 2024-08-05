@@ -1,7 +1,7 @@
 from tools.filtros.filtro_nomes import filtro_nomes
-from tools.correcao_dados.correcao_de_dados import modelo_cpf
+from tools.validacoes.validar_cpfs import validar_cpfs
 from tools.correcao_dados.correcao_contato import correcao_contato
-from tools.preencher_endereco import preencher_endereco
+from tools.automacoes.preencher_endereco import preencher_endereco
 from tools.janelas.janela_confirmacao import janela_confirmacao
 from tools.filtros.filtro_datas_de_nascimento import filtro_datas_de_nascimento
 from tools.validacoes.valida_endereco_esta_preenchido import valida_endereco_esta_preenchido
@@ -20,7 +20,7 @@ def janela_principal():
         # ------ definindo variáveis -----------
         botoes, dados = menu_principal.Read()
         nascimentos = filtro_datas_de_nascimento(dados['dados'])
-        cpfs, cpf_invalido = modelo_cpf(dados['dados'])
+        cpfs, cpf_invalido = validar_cpfs(dados['dados'])
         nomes = filtro_nomes(dados)
         contato = correcao_contato(dados['contato'])
 

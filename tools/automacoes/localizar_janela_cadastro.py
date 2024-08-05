@@ -10,11 +10,9 @@ def localizar_janela_cadastro():
             Popup("Janela de cadastro não encontrada")
             break
         try:
-            imagem = locateCenterOnScreen('tools/imagens/image.png')
+            imagem = locateCenterOnScreen('reserva.PNG')
             if imagem: 
                 break
-
-
         except:
             sleep(0.5)
             continue

@@ -11,7 +11,7 @@ def exibe_cpf(cpf):
     return ''.join(cpf_)
 
 
-def modelo_cpf(txt):
+def validar_cpfs(txt):
     # ------- regex ------ 
     padrao = compile(r'(\d{3}.?.?.?\d{3}.?.?.?\d{3}.?.?.?\d{2})')
 
@@ -33,7 +33,3 @@ def modelo_cpf(txt):
     cpfs_errados = [exibe_cpf(cpfs_errados[c]) for c in range(len(cpfs_errados))]
     
     return cpfs_corretos, cpfs_errados
-
-
-if __name__ == "__main__":
-    print(modelo_cpf('123..456. 789- 78'))

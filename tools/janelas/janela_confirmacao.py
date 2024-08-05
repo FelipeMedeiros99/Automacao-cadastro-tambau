@@ -1,6 +1,6 @@
 from layout_telas.menu_confirmacao_layout import menu_confirmacao_layout
 from tools.filtros.filtrar_dados_janela_confirmacao import filtrar_dados_janela_conmfirmacao
-from tools.processo_de_cadastro import processo_de_cadastro
+from tools.automacoes.processo_de_cadastro import processo_de_cadastro
 
 import PySimpleGUI as sg
 
