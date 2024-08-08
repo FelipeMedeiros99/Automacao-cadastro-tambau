@@ -10,7 +10,7 @@ def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, te
     confirmar_caso_hospede_tenha_cadastro = (713, 537)
     salvar_cadastro_do_hospede = (595, 586)
     confirmar_cadastro_do_hospede = (593, 560)
-    confirmar_caso_hospede_ja_possua_reserva = (801, 543)
+    confirmar_caso_hospede_ja_possua_reserva = (801, 540)
     press('tab')
     sleep(0.5)
     parada()
