@@ -7,6 +7,7 @@ from PySimpleGUI import Popup
 
 def processo_de_cadastro(janela_confirmacao, nomes, cpfs, nascimentos, cep, dados, contato):
     janela_confirmacao.close()
+    contador_execucoes = 0
     try:
         localizar_janela_cadastro()
 
@@ -22,7 +23,9 @@ def processo_de_cadastro(janela_confirmacao, nomes, cpfs, nascimentos, cep, dado
                               dados['bairro'], 
                               dados['cidade'], 
                               contato, 
-                              dados['email'])
+                              dados['email'],
+                              contador_execucoes)
+            contador_execucoes += 1
 
         fechar_janela()
 

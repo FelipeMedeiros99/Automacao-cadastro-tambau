@@ -1,15 +1,20 @@
 from time import sleep
 from tools.automacoes.parada import parada
+from tools.automacoes.automacao_primeiro_cadastro import automacao_primeiro_cadastro
+from tools.automacoes.automacao_outros_cadastros import automacao_outros_cadastros
 from pyautogui import press, click, hotkey, write
 from pyperclip import copy
 
+def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, telefone, email, contador_execucoes):
 
-def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, telefone, email):
+    confirmar_caso_hospede_tenha_cadastro = (713, 537)
+    salvar_cadastro_do_hospede = (595, 586)
+    confirmar_cadastro_do_hospede = (593, 560)
+    confirmar_caso_hospede_ja_possua_reserva = (801, 543)
     press('tab')
     sleep(0.5)
     parada()
-
-    click(x=1174, y=282)
+    
     # cpf
     copy(cpf)
     hotkey('ctrl', 'v')
@@ -18,7 +23,7 @@ def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, te
     press('tab')
     sleep(0.2)
     parada()
-    click(x=816, y=477)
+    click(confirmar_caso_hospede_tenha_cadastro)
     sleep(0.2)
     parada()
 
@@ -31,63 +36,11 @@ def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, te
     sleep(0.2)
     parada()
 
-    # cep
-    copy(cep)
-    hotkey('ctrl', 'v')
-    sleep(0.2)
-    parada()
-    press('tab')
-    sleep(0.2)
-    parada()
-
-    # logradouro
-    copy(logradouro)
-    hotkey('ctrl', 'a')
-    parada()
-    hotkey('ctrl', 'v')
-    sleep(0.2)
-    parada()
-    press('tab')
-    parada()
-
-    # bairro
-    copy(bairro)
-    hotkey('ctrl', 'v')
-    sleep(0.2)
-    parada()
-    press('tab')
-    parada()
-
-    # cidade
-    copy(cidade)
-    hotkey('ctrl', 'v')
-    sleep(0.2)
-    parada()
-    press('tab')
-    sleep(0.2)
-    parada()
-    press('tab')
-    sleep(0.2)
-
-    press('tab')
-
-    # telefone
-    copy(telefone)
-    press('backspace')
-    write(telefone)
-    sleep(0.2)
-    press('tab')
-    sleep(0.2)
-    press('tab')
-    sleep(0.2)
-
-    press('backspace')
-    write(telefone)
-    sleep(0.2)
-    press('tab')
-    sleep(0.2)
-    press('tab')
-    sleep(0.2)
+    if contador_execucoes == 0:
+        automacao_primeiro_cadastro(cep, logradouro, bairro, cidade, telefone)
+    
+    else:
+        automacao_outros_cadastros()
 
     # nascimento
     copy(nascimento)
@@ -101,11 +54,11 @@ def cadastrar_hospede(nome, cpf, nascimento, cep, logradouro, bairro, cidade, te
     sleep(0.2)
 
     # fechando
-    click(x=676, y=529)
+    click(salvar_cadastro_do_hospede)
     sleep(0.2)
-    click(x=682, y=496)
-    sleep(0.2)
-    click(x=886, y=479)
-    sleep(0.2)
-    click(x=886, y=479)
+    click(confirmar_cadastro_do_hospede)
+    sleep(0.01)
+    click(confirmar_caso_hospede_ja_possua_reserva)
+    sleep(0.01)
+    click(confirmar_caso_hospede_ja_possua_reserva)
     sleep(0.2)

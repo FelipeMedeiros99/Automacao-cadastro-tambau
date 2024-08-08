@@ -4,10 +4,12 @@ from time import sleep
 
 
 def editar_hospede():
+    botao_adicionar = (1092, 340)
+    botao_cadastrar = (718, 504)
     parada()
-    click(x=1174, y=282)
+    click(botao_adicionar)
     sleep(1)
     parada()
-    click(x=799, y=434)
+    click(botao_cadastrar)
     sleep(1)
     parada()
