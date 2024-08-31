@@ -3,6 +3,9 @@ from pyautogui import locateCenterOnScreen
 
 
 while True:
-    sleep(2)
-    imagem = locateCenterOnScreen("reserva2.PNG")
-    print(imagem)
+    sleep(0.5)
+    try:
+        imagem = locateCenterOnScreen("reserva2.PNG")
+        print(imagem)
+    except:
+        print('.')

@@ -6,17 +6,15 @@ def localizar_janela_cadastro():
     tempo_inicial = time()
     while True:
     
-        if (time() - tempo_inicial) > 5:
+        if (time() - tempo_inicial) > 10:
             Popup("Janela de cadastro não encontrada")
             raise TypeError
         try:
-            imagem1 = locateCenterOnScreen('reserva.PNG', confidence=0.8)
-            imagem2 = locateCenterOnScreen("reserva2.PNG", confidence=0.8)
-            if imagem1 or imagem2: 
+            imagem = locateCenterOnScreen('reserva.PNG') or locateCenterOnScreen("reserva2.PNG")
+            if imagem: 
                 break
         except:
             sleep(0.5)
-            continue
 
 
 if __name__ == "__main__":
