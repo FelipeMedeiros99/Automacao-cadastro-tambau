@@ -1,5 +1,5 @@
 from re import compile, findall
-from cpf import checar
+from pycnpj_cpf.core import cnpj_or_cpf_is_valid as checar
 
 def exibe_cpf(cpf):
     cpf_ = []
