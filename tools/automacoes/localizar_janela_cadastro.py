@@ -10,8 +10,9 @@ def localizar_janela_cadastro():
             Popup("Janela de cadastro não encontrada")
             raise TypeError
         try:
-            imagem = locateCenterOnScreen('reserva.PNG')
-            if imagem: 
+            imagem1 = locateCenterOnScreen('reserva.PNG', confidence=0.8)
+            imagem2 = locateCenterOnScreen("reserva2.PNG", confidence=0.8)
+            if imagem1 or imagem2: 
                 break
         except:
             sleep(0.5)
