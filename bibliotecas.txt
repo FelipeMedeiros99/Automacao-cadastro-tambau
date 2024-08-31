@@ -3,3 +3,4 @@ PySimpleGUI
 Py-Cep
 PyAutoGUI
 Pillow
+pyinstaller
